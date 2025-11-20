@@ -14,7 +14,7 @@ class Student(models.Model):
     date_of_birth = models.DateField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     admission_date = models.DateField()
-    grade = models.CharField(max_length=10)
+    grade = models.CharField(max_length=3)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -25,8 +25,8 @@ class Course(models.Model):
     code = models.CharField(max_length=10, unique=True)
     credits = models.CharField(max_length=3)
 
-    def __str__(self):
-        return f"{self.name}-{self.code}"
+    # def __str__(self):
+    #     return f"{self.name}-{self.code}"
     
 class Enrollment(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
